@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosFetch = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: "https://prolancer-server.onrender.com",
     withCredentials: true
 });
 
