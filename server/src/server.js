@@ -23,7 +23,8 @@ app.use(cors({
     origin: [
         'http://localhost:5173',
         'http://localhost:4173',
-        'https://prolancer-frontend.onrender.com'
+        'https://prolancer-frontend.onrender.com',
+        'https://checkout.stripe.com'
     ],
     credentials: true
 }));
