@@ -17,10 +17,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(compression());
+app.set("trust proxy", 1);
+
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:4173','https://your-frontend-deployed-url.com'],
+    origin: [
+        'http://localhost:5173',
+        'http://localhost:4173',
+        'https://prolancer-frontend.onrender.com'
+    ],
     credentials: true
 }));
+
 
 // Other Routes
 app.use('/api/auth', authRoute);
