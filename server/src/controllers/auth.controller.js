@@ -103,13 +103,23 @@ const authLogin = async (request, response) => {
                 isSeller: user.isSeller
             }, JWT_SECRET, { expiresIn: '7 days' });
 
-            const cookieConfig =  {
-                httpOnly: true,
-                sameSite: NODE_ENV === 'production' ? 'none' : 'strict',
-                secure: NODE_ENV === 'production',
-                maxAge: 60 * 60 * 24 * 7 * 1000, // 7 days
-                path: '/'
-            }
+            // const cookieConfig =  {
+            //     httpOnly: true,
+            //     sameSite: NODE_ENV === 'production' ? 'none' : 'strict',
+            //     secure: NODE_ENV === 'production',
+            //     maxAge: 60 * 60 * 24 * 7 * 1000, // 7 days
+            //     path: '/'
+            // }
+
+            const cookieConfig = {
+    httpOnly: true,
+    sameSite: "none",      // must be none for cross-site cookies
+    secure: true,          // must be true for HTTPS
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    path: "/"
+};
+
+
 
             return response.cookie('accessToken', token, cookieConfig)
             .status(202).send({

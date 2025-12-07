@@ -19,15 +19,27 @@ app.use(cookieParser());
 app.use(compression());
 app.set("trust proxy", 1);
 
+// app.use(cors({
+//     origin: [
+//         'http://localhost:5173',
+//         'http://localhost:4173',
+//         'https://prolancer-frontend.onrender.com',
+//         'https://checkout.stripe.com'
+//     ],
+//     credentials: true
+// }));
+
 app.use(cors({
     origin: [
-        'http://localhost:5173',
-        'http://localhost:4173',
-        'https://prolancer-frontend.onrender.com',
+        "http://localhost:5173",
+        "http://localhost:4173",
+        "https://prolancer-frontend.onrender.com",
         'https://checkout.stripe.com'
     ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
 }));
+
 
 
 // Other Routes

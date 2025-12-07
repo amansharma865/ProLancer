@@ -245,8 +245,60 @@ const getOrders = async (request, response) => {
     }
 };
 
+// const paymentIntent = async (request, response) => {
+//     const { _id } = request.params;
+
+//     try {
+//         const gig = await Gig.findOne({ _id });
+//         if (!gig) {
+//             throw new Error('Gig not found');
+//         }
+
+//         const amountInCents = gig.price * 100;
+//         if (amountInCents < 50) {
+//             throw new Error('Amount must convert to at least 50 cents.');
+//         }
+
+//         const payment_intent = await stripe.paymentIntents.create({
+//             amount: amountInCents,
+//             currency: "INR",
+//             automatic_payment_methods: {
+//                 enabled: true,
+//             },
+//         });
+
+//         const order = new Order({
+//             gigID: gig._id,
+//             image: gig.cover,
+//             title: gig.title,
+//             buyerID: request.userID,
+//             sellerID: gig.userID,
+//             price: gig.price,
+//             payment_intent: payment_intent.id
+//         });
+
+//         await order.save();
+//         return response.send({
+//             error: false,
+//             clientSecret: payment_intent.client_secret
+//         });
+
+//     } catch (error) {
+//         console.error('Error creating payment intent:', error); // Log the error
+//         return response.status(500).send({
+//             error: true,
+//             message: error.message
+//         });
+//     }
+// };
+
+    
 const paymentIntent = async (request, response) => {
     const { _id } = request.params;
+
+    // 🔥 Add the debug log RIGHT HERE
+    // console.log("UserID from request:", request.userID);
+     console.log("UserID from token:", request.userID);
 
     try {
         const gig = await Gig.findOne({ _id });
@@ -271,7 +323,7 @@ const paymentIntent = async (request, response) => {
             gigID: gig._id,
             image: gig.cover,
             title: gig.title,
-            buyerID: request.userID,
+            buyerID: request.userID,  // 🧨 THIS is failing in production
             sellerID: gig.userID,
             price: gig.price,
             payment_intent: payment_intent.id
@@ -284,8 +336,8 @@ const paymentIntent = async (request, response) => {
         });
 
     } catch (error) {
-        console.error('Error creating payment intent:', error); // Log the error
-        return response.status(500).send({
+        console.error('Error creating payment intent:', error);
+        return response.status(400).send({
             error: true,
             message: error.message
         });
