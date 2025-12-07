@@ -10,28 +10,28 @@ export const cards = [
       id: 2,
       title: "Logo Design",
       desc: "Build yor brand",
-      img: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png",
+      img: "https://res.cloudinary.com/dbr8ds7y6/image/upload/v1750746073/asus-rog-8k-amoled-3840x2160-15686_todpys.png",
       slug: 'design',
     },
     {
       id: 3,
       title: "WordPress",
       desc: "Customize your site",
-      img: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png",
+      img: "https://res.cloudinary.com/dbr8ds7y6/image/upload/v1765111289/fikret-tozak-rfNLa1HL7eY-unsplash_t1h0om.jpg",
       slug: 'wordpress'
     },
     {
       id: 4,
       title: "Voice Over",
       desc: "Share your message",
-      img: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png",
+      img: "https://res.cloudinary.com/dbr8ds7y6/image/upload/v1765111459/pasqualino-capobianco-bcifZBVCDXk-unsplash_v8t4dn.jpg",
       slug: 'voice'
     },
     {
       id: 5,
       title: "Video Explainer",
       desc: "Engage your audience",
-      img: "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png",
+      img: "https://res.cloudinary.com/dbr8ds7y6/image/upload/v1765111458/antoinette-plessis-vXWwOdWgeFA-unsplash_o1v57s.jpg",
       slug: 'video'
     },
     {
